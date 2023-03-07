@@ -18,7 +18,11 @@ class PermissionController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 
+=======
+     
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
     }
 
     /**
@@ -69,12 +73,21 @@ class PermissionController extends Controller
                             ->rightJoin('permissions','permissions.id','=','permission_role.permission_id')
                             ->where('roles.id',$id)->get();
 
+<<<<<<< HEAD
         $data['permissions_array'] = $permissions->pluck('permission_id');
         $user = Auth::guard('admin')->user();
 
 
         return view('admin.role.permission',$data);
 
+=======
+        $data['permissions_array'] = $permissions->pluck('permission_id');     
+        $user = Auth::guard('admin')->user();   
+
+         
+        return view('admin.role.permission',$data);
+    
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
     }
 
     /**
@@ -87,17 +100,29 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
             // dd($request->all());
+<<<<<<< HEAD
          $role  =  Role::find($id) ;
+=======
+         $role  =  Role::find($id) ;        
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
 
         $permissions = ($request->has('permission')) ? $request->permission : array() ;
 
 
         $role->permissions()->detach();
+<<<<<<< HEAD
 
         if(count($permissions) > 0) {
             $role->permissions()->sync($permissions);
         }
 
+=======
+        
+        if(count($permissions) > 0) {
+            $role->permissions()->sync($permissions);
+        }
+        
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         // Session::flash('success', 'Permissions update successfully.');
         // return redirect()->route('role.index');
              // return back()->with('success',"Permissions update successfully.");

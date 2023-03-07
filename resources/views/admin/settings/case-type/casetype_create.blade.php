@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="modal fade" id="addtagsasdf" role="dialog" aria-labelledby="addcategory" aria-hidden="true">
+=======
+<div class="modal fade" id="addtag" role="dialog" aria-labelledby="addcategory" aria-hidden="true">
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
 
     <div class="modal-dialog" role="document">
         <form action="{{ route('case-type.store') }}" method="POST" id="tagForm" name="tagForm">

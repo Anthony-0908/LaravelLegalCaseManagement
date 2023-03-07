@@ -75,7 +75,11 @@ class Admin extends Authenticatable
 protected function scopeGetAdmin()
     {
         return $this->gard('admin')->user();
+<<<<<<< HEAD
     }
+=======
+    }   
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new AdminResetPassword($token));

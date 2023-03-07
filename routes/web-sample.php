@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-
-use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Artisan;
 
-=======
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +13,6 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
 Route::get('/backup', function () {
     $exitCode = Artisan::call('backup:run --only-db');
     echo 'DONE'; //Return anything
@@ -228,17 +223,3 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
     Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 });
-=======
-
-Route::get('/','InstallerController@index');
-Route::get('/install','InstallerController@index');
-Route::get('/install/requirements','InstallerController@requirements')->name('check.requirements');
-Route::get('/install/db-information','InstallerController@install')->name('get.dBinfo');
-Route::get('/install/run-installer','InstallerController@runInstaller')->name('run.installer');
-Route::get('/install/success','InstallerController@successInstall')->name('install.success');
-Route::post('/install/run-installer','InstallerController@runInstaller')->name('run.installer');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885

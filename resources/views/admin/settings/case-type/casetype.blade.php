@@ -15,6 +15,7 @@
 
 
         <div class="clearfix"></div>
+<<<<<<< HEAD
             <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
@@ -38,6 +39,9 @@
       </div>
     </div>
   </div>
+=======
+
+>>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
