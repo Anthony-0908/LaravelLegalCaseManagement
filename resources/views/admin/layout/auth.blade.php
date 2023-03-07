@@ -11,9 +11,11 @@
     <title>{{ config('app.name', 'Laravel Multi Auth Guard') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
+    <link href="/assets/css/app.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -64,6 +66,8 @@
                                                  document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
+                                    
+
 
                                     <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
@@ -79,7 +83,7 @@
 
     @yield('content')
 
-    <!-- Scripts -->
-    <script src="assets/js/app.js"></script>
+
+    <script type="text/javascript" src="../assets/js/app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-{{-- @extends('admin.layout.app')
+@extends('admin.layout.app')
 @section('title','Client Create')
 @section('content')
     @component('component.heading' , [
@@ -314,4 +314,4 @@
     <script src="{{asset('assets/admin/vendors/repeter/repeater.js')}}"></script>
     <script src="{{asset('assets/admin/vendors/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{asset('assets/js/client/add-client-validation.js')}}"></script>
-@endpush --}}
+@endpush

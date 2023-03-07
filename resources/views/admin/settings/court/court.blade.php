@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 @section('title','Court')
 @section('content')
-    <div class="">
+    {{-- <div class="">
 
         @component('component.modal_heading',
              [
@@ -12,7 +12,20 @@
               'permission' => $adminHasPermition->can(['court_add'])
              ] )
             Status
-        @endcomponent
+        @endcomponent --}}
+
+        <div class="">
+            @component('component.modal_heading',
+            [
+                'page_title' => 'Court',
+                'action' =>route("court.create"),
+                'model_title'=> 'Create Court',
+                'modal_id'=> '#addtags',
+                'permission' => $adminHasPermition->can(['court_add'])
+            ])
+            status
+            @endcomponent
+
 
 
         <div class="clearfix"></div>

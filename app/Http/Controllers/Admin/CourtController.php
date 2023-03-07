@@ -28,11 +28,11 @@ class CourtController extends Controller
      */
     public function index()
     {
-          $user = \Auth::guard('admin')->user();  
+          $user = \Auth::guard('admin')->user();
         if(! $user->can('court_list')){
             abort(403, 'Unauthorized action.');
         }
-        
+
         return view('admin.settings.court.court');
     }
 
@@ -47,21 +47,21 @@ class CourtController extends Controller
 
 
                 return response()->json([
-                    'html' =>  view('admin.settings.court.court_create',$date)->render()
+                    'html' =>  view('admin.settings.court.try',$date)->render()
                 ]);
     }
 
     public function cashList(Request $request) {
 
 
-         $user = \Auth::guard('admin')->user();  
+         $user = \Auth::guard('admin')->user();
          $isEdit=$user->can('court_edit');
          $isDelete=$user->can('court_delete');
 
 
 
 
-      
+
               // Listing column to show
         $columns = array(
             0 => 'id',
@@ -75,7 +75,7 @@ class CourtController extends Controller
                     ->leftJoin('court_types AS ct', 'c.court_type_id', '=', 'ct.id')
                     ->select('c.id','c.court_name','c.advocate_id','c.is_active','ct.court_type_name')
                         ->count();
-                        
+
         $totalRec = $totalData;
 
         $limit = $request->input('length');
@@ -93,7 +93,7 @@ class CourtController extends Controller
                         });
 
 
-                       
+
 
 
 
@@ -123,7 +123,7 @@ class CourtController extends Controller
 
 
 
-            
+
         if($isEdit=="1"){
             $row['is_active'] = $this->status($item->is_active,$item->id , route('court.status'));
         }else{
@@ -176,12 +176,12 @@ class CourtController extends Controller
             'court_type'   => 'required',
             'court_name'   => 'required',
         ]);
-        
+
         if ($validator->fails())
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-        
+
         $casetype = new Court();
         $casetype->advocate_id   ="1";
         $casetype->court_type_id    = $request->court_type;
@@ -194,8 +194,8 @@ class CourtController extends Controller
 
         ],200);
 
-        
-     
+
+
     }
 
     /**
@@ -238,12 +238,12 @@ class CourtController extends Controller
             'court_type'   => 'required',
             'court_name'   => 'required',
         ]);
-        
+
         if ($validator->fails())
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-        
+
         $casetype = Court::findorfail($id);
         $casetype->advocate_id   ="1";
         $casetype->court_type_id    = $request->court_type;
@@ -255,7 +255,7 @@ class CourtController extends Controller
             'message' => 'Court updated successfully',
 
         ],200);
-       
+
     }
 
     /**
@@ -267,11 +267,11 @@ class CourtController extends Controller
 
          public function changeStatus(Request $request) {
             // dd($request->all());
-       
+
        $statuscode = 400;
        $data = Court::findOrFail($request->id);
        $data->is_active  = $request->status == 'true' ? 'Yes' : 'No' ;
-        
+
         if($data->save()) {
             $statuscode = 200 ;
         }

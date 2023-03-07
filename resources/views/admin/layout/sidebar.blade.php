@@ -49,7 +49,7 @@
                 </li>
             @endif
             @if($adminHasPermition->can(['vendor_list']) =="1")
-                <li><a href="{{ route('vendor.index') }}"><i class="fa fa-user-plus"></i> Vendor</a></li>
+                <li><a href="{{ route('vendor.index') }}"><i class="fa fa-user-plus"></i> User</a></li>
             @endif
 
             @if($adminHasPermition->can(['expense_type_list'])=="1" || $adminHasPermition->can(['expense_list'])=="1")

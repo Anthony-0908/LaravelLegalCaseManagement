@@ -76,6 +76,7 @@
                                     Login
                                 </button>
                 <a class="reset_pass"  href="{{ url('/admin/password/reset') }}">Lost your password?</a>
+                 <a class="rest_pass" href="{{ url('/admin/register') }}">Create account</a>
               </div>
 
               <div class="clearfix"></div>
@@ -86,7 +87,7 @@
                 <br />
 
                 <div>
-      
+
                   <p>©2019 All Rights Reserved. LawOffice</p>
                 </div>
               </div>
