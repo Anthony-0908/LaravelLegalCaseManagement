@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AdminAuth;
 
+// use App\Admin is the model of the admin login and register
 use App\Admin;
 use Validator;
 use App\Http\Controllers\Controller;

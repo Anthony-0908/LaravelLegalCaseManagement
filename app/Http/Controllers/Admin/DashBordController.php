@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Model\AdvocateClient;
-use App\Model\CourtCase;
-use App\Model\CaseType;
-use App\Model\CaseStatus;
-use App\Model\Judge;
-use App\Model\Court;
-use App\Model\CaseLog;
-use App\Model\Appointment;
-use App\Model\GeneralSettings;
-use App\Model\CourtType;
-use Validator;
 use DB;
-use PDF;
 use App\Admin;
-use App\Helpers\LogActivity;
+use Validator;
 use Carbon\Carbon;
+use App\Model\Court;
+use App\Model\Judge;
+use App\Model\CaseLog;
+use App\Model\CaseType;
+use App\Model\CourtCase;
+use App\Model\CourtType;
+use Barryvdh\DomPDF\PDF;
+use App\Model\CaseStatus;
+use App\Model\Appointment;
+use App\Helpers\LogActivity;
+use Illuminate\Http\Request;
+use App\Model\AdvocateClient;
+use App\Model\GeneralSettings;
+use App\Http\Controllers\Controller;
 
 class DashBordController extends Controller
 {

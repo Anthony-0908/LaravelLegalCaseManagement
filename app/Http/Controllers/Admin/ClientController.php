@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-<<<<<<< HEAD
-use DB;
+
+
 use Auth;
 use Session;
 use App\Model\City;
@@ -16,20 +16,9 @@ use App\Traits\DatatablTrait;
 use App\Http\Requests\StoreClient;
 use App\Model\ClientPartiesInvoive;
 use App\Http\Controllers\Controller;
-=======
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreClient;
-use App\Http\Controllers\Controller;
-use App\Model\AdvocateClient;
-use App\Model\CourtCase;
-use App\Model\ClientPartiesInvoive;
-use App\Traits\DatatablTrait;
-use App\Model\Country;
-use App\Model\State;
-use App\Model\City;
 use DB;
-use Session;
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
+
+
 
 class ClientController extends Controller
 {
@@ -402,11 +391,11 @@ class ClientController extends Controller
     public function accountDetail($id)
     {
 //        dd(1);
-<<<<<<< HEAD
+
         $user = Auth::guard('admin')->user();
-=======
+
         $user = \Auth::guard('admin')->user();
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
+
         if (!$user->can('invoice_list')) {
             abort(403, 'Unauthorized action.');
         }

@@ -28,19 +28,11 @@ class CourtController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
           $user = \Auth::guard('admin')->user();
         if(! $user->can('court_list')){
             abort(403, 'Unauthorized action.');
         }
 
-=======
-          $user = \Auth::guard('admin')->user();  
-        if(! $user->can('court_list')){
-            abort(403, 'Unauthorized action.');
-        }
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         return view('admin.settings.court.court');
     }
 
@@ -55,33 +47,21 @@ class CourtController extends Controller
 
 
                 return response()->json([
-<<<<<<< HEAD
-                    'html' =>  view('admin.settings.court.try',$date)->render()
-=======
                     'html' =>  view('admin.settings.court.court_create',$date)->render()
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
                 ]);
     }
 
     public function cashList(Request $request) {
 
 
-<<<<<<< HEAD
          $user = \Auth::guard('admin')->user();
-=======
-         $user = \Auth::guard('admin')->user();  
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
          $isEdit=$user->can('court_edit');
          $isDelete=$user->can('court_delete');
 
 
 
 
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
               // Listing column to show
         $columns = array(
             0 => 'id',
@@ -95,11 +75,7 @@ class CourtController extends Controller
                     ->leftJoin('court_types AS ct', 'c.court_type_id', '=', 'ct.id')
                     ->select('c.id','c.court_name','c.advocate_id','c.is_active','ct.court_type_name')
                         ->count();
-<<<<<<< HEAD
 
-=======
-                        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         $totalRec = $totalData;
 
         $limit = $request->input('length');
@@ -117,11 +93,7 @@ class CourtController extends Controller
                         });
 
 
-<<<<<<< HEAD
 
-=======
-                       
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
 
 
 
@@ -151,11 +123,7 @@ class CourtController extends Controller
 
 
 
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         if($isEdit=="1"){
             $row['is_active'] = $this->status($item->is_active,$item->id , route('court.status'));
         }else{
@@ -208,20 +176,12 @@ class CourtController extends Controller
             'court_type'   => 'required',
             'court_name'   => 'required',
         ]);
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         if ($validator->fails())
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         $casetype = new Court();
         $casetype->advocate_id   ="1";
         $casetype->court_type_id    = $request->court_type;
@@ -234,13 +194,8 @@ class CourtController extends Controller
 
         ],200);
 
-<<<<<<< HEAD
 
 
-=======
-        
-     
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
     }
 
     /**
@@ -283,20 +238,12 @@ class CourtController extends Controller
             'court_type'   => 'required',
             'court_name'   => 'required',
         ]);
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         if ($validator->fails())
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         $casetype = Court::findorfail($id);
         $casetype->advocate_id   ="1";
         $casetype->court_type_id    = $request->court_type;
@@ -308,11 +255,7 @@ class CourtController extends Controller
             'message' => 'Court updated successfully',
 
         ],200);
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
     }
 
     /**
@@ -324,19 +267,11 @@ class CourtController extends Controller
 
          public function changeStatus(Request $request) {
             // dd($request->all());
-<<<<<<< HEAD
 
        $statuscode = 400;
        $data = Court::findOrFail($request->id);
        $data->is_active  = $request->status == 'true' ? 'Yes' : 'No' ;
 
-=======
-       
-       $statuscode = 400;
-       $data = Court::findOrFail($request->id);
-       $data->is_active  = $request->status == 'true' ? 'Yes' : 'No' ;
-        
->>>>>>> e2967fbaf1afcd9b41c852d75297fb0fcef96885
         if($data->save()) {
             $statuscode = 200 ;
         }
